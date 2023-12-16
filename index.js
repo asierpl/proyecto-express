@@ -30,8 +30,8 @@ app.get ('/' , async ( req , res , next )=>{
 
     const buscar = await Usuario.find()
 
-    // res.json(buscar)
-    res.json({URL_ATLAS})
+    res.json(buscar)
+   
 })
 
 app.post( '/' , async ( req , res , next) =>{
