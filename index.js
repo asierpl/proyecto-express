@@ -38,7 +38,7 @@ app.get ('/' ,  ( req , res , next )=>{
 
    
 
-    res.json('Haciendo get')
+    res.json(JSON.stringify(URL_ATLAS))
    
 })
 
