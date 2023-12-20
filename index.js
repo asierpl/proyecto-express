@@ -38,7 +38,7 @@ app.get ('/' , async ( req , res , next )=>{
 
    const buscar = await Usuario.find()
 
-    res.json(JSON.stringify(URL_ATLAS))
+    res.json(buscar)
    
 })
 
