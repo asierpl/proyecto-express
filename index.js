@@ -15,12 +15,12 @@ const conectar = async () => await mongoose.connect(URL_ATLAS)
 
 conectar()
 
-// const usuarioSchema = new mongoose.Schema(
-//     { user : String , pass : String },
-//     { collection : 'usuarios' }
-// )
+const usuarioSchema = new mongoose.Schema(
+    { user : String , pass : String },
+    { collection : 'usuarios' }
+)
 
-// const Usuario = mongoose.model( 'usuario' , usuarioSchema)
+const Usuario = mongoose.model( 'usuario' , usuarioSchema)
 
 app.use( cors() )
 app.use( express.json() )
