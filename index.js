@@ -20,7 +20,7 @@ const usuarioSchema = new mongoose.Schema(
     { collection : 'usuarios' }
 )
 
-const Usuario = mongoose.model( 'usuario' , usuarioSchema)
+const Usuario = mongoose.model( 'Usuario' , usuarioSchema)
 
 app.use( cors() )
 app.use( express.json() )
