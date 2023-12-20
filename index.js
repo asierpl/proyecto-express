@@ -34,9 +34,9 @@ app.use( express.urlencoded({ extended : false }) )
    
 // })
 
-app.get ('/' ,  ( req , res , next )=>{
+app.get ('/' , async ( req , res , next )=>{
 
-   
+   const buscar = await Usuario.find()
 
     res.json(JSON.stringify(URL_ATLAS))
    
