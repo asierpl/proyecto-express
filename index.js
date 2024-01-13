@@ -22,17 +22,30 @@ const usuarioSchema = new mongoose.Schema(
 
 const Usuario = mongoose.model( 'Usuario' , usuarioSchema)
 
+
+
+const headerLogoSchema = new mongoose.Schema(
+    { bonanza : String , partner : String , canonAlt : String , canonSrc : String},
+    { collection : 'headerlogo' }
+)
+const HeaderLogo = mongoose.model('HeaderLogo' , headerLogoSchema)
+
+
+const headerNavSchema = new mongoose.Schema(
+    { href : String , title : String},
+    { collection : 'headernav' }
+)
+const HeaderNav = mongoose.model( 'HeaderNav' , headerNavSchema)
+
+
+
+
+
 app.use( cors() )
 app.use( express.json() )
 app.use( express.urlencoded({ extended : false }) )
 
-// app.get ('/' , async ( req , res , next )=>{
 
-//     const buscar = await Usuario.find()
-
-//     res.json(buscar)
-   
-// })
 
 app.get ('/' , async ( req , res , next )=>{
 
@@ -52,5 +65,35 @@ app.post( '/' , async ( req , res , next) =>{
 
     res.json(buscar)
 })
+
+
+
+
+app.get('/gestor' , async (req , res , next) => {
+    
+    const headerLogo = await HeaderLogo.findOne()
+    const headerNav  = await HeaderNav.find()
+    const headerDatos = {headerLogo , headerNav}
+    res.json(headerDatos)
+})
+
+
+// app.get('/gestor' , async (req , res , next) => {
+    
+//     const headerDatos = await HeaderLogo.findOne()
+
+//     res.json(headerDatos)
+// })
+
+// app.get('/gestor' , async (req , res , next) => {
+    
+//     const headerData = await HeaderNav.find()
+
+//     res.json(headerData)
+// })
+
+//Nuevo, experimentando ---------------------------
+
+
 
 app.listen( 3000 , ()=> console.log('Iniciando API'))
