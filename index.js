@@ -37,7 +37,11 @@ const headerNavSchema = new mongoose.Schema(
 )
 const HeaderNav = mongoose.model( 'HeaderNav' , headerNavSchema)
 
-
+const carrouselSchema = new mongoose.Schema(
+    { src : String , alt : String },
+    { collection : 'carrousel' }
+)
+const Carrousel = new mongoose.model( 'Carrousel' , carrouselSchema)
 
 
 
@@ -73,26 +77,26 @@ app.get('/gestor' , async (req , res , next) => {
     
     const headerLogo = await HeaderLogo.findOne()
     const headerNav  = await HeaderNav.find()
-    const headerDatos = {headerLogo , headerNav}
-    res.json(headerDatos)
+    const carrousel = await Carrousel.find()
+    
+    const datos = {headerLogo , headerNav, carrousel}
+    
+    res.status(200).json(datos)
 })
 
 
 // app.get('/gestor' , async (req , res , next) => {
     
-//     const headerDatos = await HeaderLogo.findOne()
-
-//     res.json(headerDatos)
-// })
-
-// app.get('/gestor' , async (req , res , next) => {
+//     const headerLogo = await HeaderLogo.findOne()
+//     const headerNav  = await HeaderNav.find()
+//     const carrousel = await Carrousel.find()
+//     const headerDatos = {headerLogo , headerNav}
     
-//     const headerData = await HeaderNav.find()
-
-//     res.json(headerData)
+//     res.status(200).json(headerDatos , carrousel)
 // })
 
-//Nuevo, experimentando ---------------------------
+
+
 
 
 
