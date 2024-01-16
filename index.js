@@ -24,6 +24,38 @@ const Usuario = mongoose.model( 'Usuario' , usuarioSchema)
 
 
 
+const loginSchema = new mongoose.Schema(
+    { srcCanon : String , altCanon : String , srcPort : String , altPort : String  },
+    { collection : 'login'}
+)
+
+const Login = mongoose.model( 'Login' , loginSchema )
+
+
+// const botonesLoginSchema = new mongoose.Schema(
+//     { btn : String  },
+//     { collection : 'botoneslogin'}
+// )
+
+// const BotonesLogin = mongoose.model( 'BotonesLogin' , botonesLoginSchema )
+
+
+
+const iniciarSchema = new mongoose.Schema(
+    { htmlUserI : String , labelUserI : String , typeUserI : String , nameUserI : String , placeholderUserI : String ,  htmlPassI : String , labelPassI : String , typePassI : String , namePassI : String , placeholderPassI : String , typeI : String , valueI : String ,  },
+    { collection : 'iniciarsesion'}
+)
+
+const Iniciar = mongoose.model( 'Iniciar' , iniciarSchema )
+
+
+const crearSchema = new mongoose.Schema(
+    { htmlUserC : String , labelUserC : String , typeUserC : String , nameUserC : String , placeholderUserC : String , htmlEmailC : String , labelEmailC : String , typeEmailC : String , nameEmailC : String , placeholderEmailC : String , htmlPassC : String , labelPassC : String , typePassC : String , namePassC : String , placeholderPassC : String , typeC : String , valueC : String ,  },
+    { collection : 'crearcuenta'}
+)
+
+const Crear = mongoose.model( 'Crear' , crearSchema )
+
 const headerLogoSchema = new mongoose.Schema(
     { bonanza : String , partner : String , canonAlt : String , canonSrc : String},
     { collection : 'headerlogo' }
@@ -53,9 +85,16 @@ app.use( express.urlencoded({ extended : false }) )
 
 app.get ('/' , async ( req , res , next )=>{
 
-   const buscar = await Usuario.find()
+    const buscar = await Usuario.find()
+    const login  = await Login.find()
+    const iniciar = await Iniciar.find()
+    const crear  = await Crear.find()
 
-    res.json(buscar)
+    // const botonesLogin = await BotonesLogin.find()
+
+    const loginData = {buscar , login , crear , iniciar}
+
+    res.json(loginData)
    
 })
 
@@ -69,8 +108,6 @@ app.post( '/' , async ( req , res , next) =>{
 
     res.json(buscar)
 })
-
-
 
 
 app.get('/gestor' , async (req , res , next) => {
