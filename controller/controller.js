@@ -101,18 +101,10 @@ const putGestor = async( req , res , next ) => {
         //Extrae el ID y los datos actualizados del body de la solicitud.
         const {_id, ...datos} = req.body
 
-        //Verifica si el ID proporcionado es válido.
-        if(!mongoose.isValidObjectId(_id)) {
-            return res.status(400).json({error : 'ID invalido'})
-        }
 
         //Actualiza el documento en la colección 'listagestor'
-       const gestor =  await ListaGestor.findByIdAndUpdate( _id , {...datos})
+        await ListaGestor.findByIdAndUpdate( _id , {...datos})
 
-       //Si el documento no se encuentra, envía una respuesta de error
-       if(!gestor) { 
-        res.status(404).json({error : 'Gestor no encontrado'})
-       }
     
        //Realiza una consulta para obtener los documentos actualizados de la colección.
         const actualizarSolicitud = await ListaGestor.find()
@@ -135,18 +127,10 @@ const deleteGestor = async(req , res , next) => {
         //Extrae el ID de los parámetros de la solicitud.
         const {_id} = req.params
 
-        //Verifica si el ID es válido
-        if(!mongoose.isValidObjectId(_id)) {
-            return res.status(400).json({error : 'ID invalido'})
-        }
 
         //Elimina el documento de la colección 'listagestor' con el ID proporcionado.
-        const gestor = await ListaGestor.findByIdAndDelete(_id)
+        await ListaGestor.findByIdAndDelete(_id)
 
-        //Si el documento no se encuentra, envía una respuesta de error.
-        if(!gestor){ 
-            res.status(404).json({error : 'Gestor no encontrado'})
-        }
 
         //Realiza una consulta para obtener la lista nueva de la colección.
         const eliminarSolicitud = await ListaGestor.find()
