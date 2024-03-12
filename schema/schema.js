@@ -68,6 +68,13 @@ const listaGestorSchema = new mongoose.Schema(
 const ListaGestor = new mongoose.model( 'ListaGestor' , listaGestorSchema)
 
 
+//Define el esquema y modelo para la colección 'listagestor'
+const tonerSchema = new mongoose.Schema(
+    { color : String , comentario : String },
+    {collection : 'toner'}
+)
+const Toner = new mongoose.model( 'Toner' , tonerSchema)
+
 //Define el esquema y modelo para la colección 'addgestor'
 const añadirGestorSchema = new mongoose.Schema(
     {h2Add: String , 
@@ -124,6 +131,27 @@ const quienesValoresSchema = new mongoose.Schema(
 )
 const QuienesValores = new mongoose.model( 'QuienesValores' , quienesValoresSchema)
 
+//Define el esquema y modelo para la colección 'contacto'
+const contactoSchema = new mongoose.Schema(
+    {contacta : String, esperamos : String, calle : String, ciudad : String, telefono : String, numero : String, correo : String, emailCanon : String, emailBonanza : String},
+    {collection : 'contacto'}
+)
+const Contacto = new mongoose.model( 'Contacto' , contactoSchema)
+
+//Define el esquema y modelo para la colección 'productos'
+const productosSchema = new mongoose.Schema(
+    { h2 : String, p : String, href : String, precio : String, src : String, alt : String },
+    {collection : 'productos'}
+)
+const Productos = new mongoose.model( 'Productos' , productosSchema)
+
+//Define el esquema y modelo para la colección 'reparacion'
+const reparacionSchema = new mongoose.Schema(
+    { problema : String, comentarios : String },
+    {collection : 'reparacion'}
+)
+const Reparacion = new mongoose.model( 'Reparacion' , reparacionSchema)
+
 
 //Exporta todos los modelos creados para su uso en otros archivos.
-module.exports = {Usuario , Login , Iniciar , Crear , HeaderLogo , HeaderNav , Carrousel , PersonalFotos , QuienesTexto , QuienesValores , ListaGestor , AñadirGestor , ActualizarGestor}
+module.exports = {Usuario , Login , Iniciar , Crear , HeaderLogo , HeaderNav , Carrousel , PersonalFotos , QuienesTexto , QuienesValores , ListaGestor , AñadirGestor , ActualizarGestor , Contacto , Productos , Toner , Reparacion}

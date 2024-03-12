@@ -3,7 +3,7 @@
 //Importa la librería
 const express = require('express')
 //Importa los controladores utilizados en controller.js
-const { postLogin, getLogin, getGestor, getQuienes, postGestor, putGestor, deleteGestor } = require('../controller/controller')
+const { postLogin, getLogin, getGestor, getQuienes, postGestor, putGestor, deleteGestor, getContacto , getProductos, getToner, getReparacion, postToner, deleteToner, putToner } = require('../controller/controller')
 
 //Define un enrutador de Express
 const router = express.Router()
@@ -23,6 +23,31 @@ router.route('/gestor')
 //Ruta para el endpoint "/quienes-somos"
 router.route('/quienes-somos')
     .get(getQuienes)           ////Método GET para obtener información sobre "quienes somos"
+
+//Ruta para el endpoint "/contacto"
+router.route('/contacto')
+    .get(getContacto)           ////Método GET para obtener información sobre "contacto"
+
+//Ruta para el endpoint "/productos"
+router.route('/productos')
+    .get(getProductos)           ////Método GET para obtener información sobre "productos"
+
+//Ruta para el endpoint "/mantenimiento"
+router.route('/mantenimiento')
+    .get(getToner)           ////Método GET para obtener información sobre "mantenimiento"
+    .post(postToner)         ////Método GET para añadir información sobre "mantenimiento"
+
+router.route('/mantenimiento/:id') 
+    .delete(deleteToner)       ////Método DELETE para eliminar información sobre "mantenimiento"
+    .put(putToner)             ////Método PUT para editar información sobre "mantenimiento"
+
+
+    //Ruta para el endpoint "/reparacion"
+router.route('/reparacion')
+    .get(getReparacion)           ////Método GET para obtener información sobre "reparacion"
+
+
+
 
 
 //Exporta el enrutador
