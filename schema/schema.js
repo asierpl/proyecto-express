@@ -128,6 +128,20 @@ const reparacionSchema = new mongoose.Schema(
 )
 const Reparacion = new mongoose.model( 'Reparacion' , reparacionSchema)
 
+//Define el esquema y modelo para la colección 'footer'
+const footerSchema = new mongoose.Schema(
+    { bonanzaPie : String, silverPie : String , pPie : String , infoPie : String },
+    {collection : 'footer'}
+)
+const Footer = new mongoose.model( 'Footer' , footerSchema)
+
+//Define el esquema y modelo para la colección 'footerOficina'
+const footerOficinaSchema = new mongoose.Schema(
+    { pA : String, pB : String , pC : String },
+    {collection : 'footerOficina'}
+)
+const FooterOficina = new mongoose.model( 'FooterOficina' , footerOficinaSchema)
+
 
 //Exporta todos los modelos creados para su uso en otros archivos.
-module.exports = {Usuario , Login , Iniciar , Crear , HeaderLogo , HeaderNav , Carrousel , PersonalFotos , QuienesTexto , QuienesValores , Contacto , Productos , Toner , Reparacion , Inicio , InicioOffer}
+module.exports = {Usuario , Login , Iniciar , Crear , HeaderLogo , HeaderNav , Carrousel , PersonalFotos , QuienesTexto , QuienesValores , Contacto , Productos , Toner , Reparacion , Inicio , InicioOffer , Footer , FooterOficina}

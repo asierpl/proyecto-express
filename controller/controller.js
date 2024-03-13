@@ -1,7 +1,7 @@
 //Este archivo define los controladores que manejan las solicitudes HTTP para la aplicación Express
 
 //Importa los modelos definidos en 'schema.js' para interactuar con MongoDB
-const { Usuario, Login, Iniciar, Crear, HeaderLogo, HeaderNav, Carrousel, PersonalFotos , QuienesTexto , QuienesValores, Contacto, Productos, Toner, Reparacion, Inicio , InicioOffer } = require("../schema/schema")
+const { Usuario, Login, Iniciar, Crear, HeaderLogo, HeaderNav, Carrousel, PersonalFotos , QuienesTexto , QuienesValores, Contacto, Productos, Toner, Reparacion, Inicio , InicioOffer, Footer, FooterOficina } = require("../schema/schema")
 
 //Controlador para gestionar solicitudes GET relacionadas con el inicio de sesión y crear cuenta.
 const getLogin  = async ( req , res , next )=>{
@@ -47,16 +47,18 @@ const postLogin = async ( req , res , next) =>{
 const getGestor = async (req , res , next) => {
     
     try {
-        //Realiza consultas a diferentes modelos para obtener datos del header, carrousel e inicio.
+        //Realiza consultas a diferentes modelos para obtener datos del header, carrousel,  inicio y footer
         const headerLogo = await HeaderLogo.findOne()
         const headerNav  = await HeaderNav.find()
         const carrousel = await Carrousel.find()
         const inicio = await Inicio.findOne()
         const inicioOffer = await InicioOffer.find()
+        const footer = await Footer.findOne()
+        const footerOficina = await FooterOficina.find()
         
         
          //Combina los resultados anteriores en un solo objeto y los envía como respuesta.
-        const datos = {headerLogo , headerNav, carrousel , inicio , inicioOffer}
+        const datos = {headerLogo , headerNav, carrousel , inicio , inicioOffer , footer , footerOficina}
         
         res.status(200).json(datos)
 
