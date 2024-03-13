@@ -16,9 +16,7 @@ router.route('/')
 //Ruta para el endpoint "/gestor"
 router.route('/gestor')
     .get(getGestor)         //Método GET para obtener información del gestor, concretamente una lista de las solicitudes de asistencia técnica del usuario.
-    .post(postGestor)       //Método POST para añadir nuevas solicitudes
-    .put(putGestor)         //Método PUT para actualizar la información de una solicitud
-    .delete(deleteGestor)   //Método DELETE eliminar solicitudes de la lista
+    
 
 //Ruta para el endpoint "/quienes-somos"
 router.route('/quienes-somos')

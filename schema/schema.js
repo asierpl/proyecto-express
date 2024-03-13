@@ -60,12 +60,7 @@ const carrouselSchema = new mongoose.Schema(
 const Carrousel = new mongoose.model( 'Carrousel' , carrouselSchema)
 
 
-//Define el esquema y modelo para la colección 'listagestor'
-const listaGestorSchema = new mongoose.Schema(
-    { solicitud : String , comment : String },
-    {collection : 'listagestor'}
-)
-const ListaGestor = new mongoose.model( 'ListaGestor' , listaGestorSchema)
+
 
 
 //Define el esquema y modelo para la colección 'listagestor'
@@ -75,37 +70,6 @@ const tonerSchema = new mongoose.Schema(
 )
 const Toner = new mongoose.model( 'Toner' , tonerSchema)
 
-//Define el esquema y modelo para la colección 'addgestor'
-const añadirGestorSchema = new mongoose.Schema(
-    {h2Add: String , 
-    typeAdd: String , 
-    idAddS: String , 
-    idAddC: String ,
-    placeholderAddS: String ,
-    placeholderAddC: String,
-    typeSubmit: String ,
-    valueAdd: String},
-    {collection : 'addgestor'}
-)
-const AñadirGestor = new mongoose.model( 'AñadirGestor' , añadirGestorSchema)
-
-
-//Define el esquema y modelo para la colección 'actualizargestor'
-const actualizarGestorSchema = new mongoose.Schema(
-    {  
-        typeUp: String , 
-        idInput : String ,
-        idUpS: String , 
-        idUpC: String ,
-        placeholderUpId : String ,
-        placeholderUpS: String ,
-        placeholderUpC: String,
-        typeUpdate: String ,
-        valueUpdate: String },
-
-    {collection : 'actualizargestor'}
-)
-const ActualizarGestor = new mongoose.model( 'ActualizarGestor' , actualizarGestorSchema )
 
 
 //Define el esquema y modelo para la colección 'personalfotos'
@@ -154,4 +118,4 @@ const Reparacion = new mongoose.model( 'Reparacion' , reparacionSchema)
 
 
 //Exporta todos los modelos creados para su uso en otros archivos.
-module.exports = {Usuario , Login , Iniciar , Crear , HeaderLogo , HeaderNav , Carrousel , PersonalFotos , QuienesTexto , QuienesValores , ListaGestor , AñadirGestor , ActualizarGestor , Contacto , Productos , Toner , Reparacion}
+module.exports = {Usuario , Login , Iniciar , Crear , HeaderLogo , HeaderNav , Carrousel , PersonalFotos , QuienesTexto , QuienesValores , Contacto , Productos , Toner , Reparacion}
