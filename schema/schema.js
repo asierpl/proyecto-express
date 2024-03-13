@@ -60,7 +60,19 @@ const carrouselSchema = new mongoose.Schema(
 const Carrousel = new mongoose.model( 'Carrousel' , carrouselSchema)
 
 
+//Define el esquema y modelo para la colección 'inicio'
+const inicioSchema = new mongoose.Schema(
+    { inicio : String , subInicio : String , srcA : String , srcB : String , altInicio : String , ofrecer : String , ofrecerP : String },
+    { collection : 'inicio' }
+)
+const Inicio = new mongoose.model( 'Inicio' , inicioSchema)
 
+//Define el esquema y modelo para la colección 'inicioOffer'
+const inicioOfferSchema = new mongoose.Schema(
+    { srcOffer : String , altOffer : String , offer : String , offerP : String },
+    { collection : 'inicioOffer' }
+)
+const InicioOffer = new mongoose.model( 'InicioOffer' , inicioOfferSchema)
 
 
 //Define el esquema y modelo para la colección 'listagestor'
@@ -118,4 +130,4 @@ const Reparacion = new mongoose.model( 'Reparacion' , reparacionSchema)
 
 
 //Exporta todos los modelos creados para su uso en otros archivos.
-module.exports = {Usuario , Login , Iniciar , Crear , HeaderLogo , HeaderNav , Carrousel , PersonalFotos , QuienesTexto , QuienesValores , Contacto , Productos , Toner , Reparacion}
+module.exports = {Usuario , Login , Iniciar , Crear , HeaderLogo , HeaderNav , Carrousel , PersonalFotos , QuienesTexto , QuienesValores , Contacto , Productos , Toner , Reparacion , Inicio , InicioOffer}

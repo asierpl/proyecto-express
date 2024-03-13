@@ -1,7 +1,7 @@
 //Este archivo define los controladores que manejan las solicitudes HTTP para la aplicación Express
 
 //Importa los modelos definidos en 'schema.js' para interactuar con MongoDB
-const { Usuario, Login, Iniciar, Crear, HeaderLogo, HeaderNav, Carrousel, PersonalFotos , QuienesTexto , QuienesValores, Contacto, Productos, Toner, Reparacion } = require("../schema/schema")
+const { Usuario, Login, Iniciar, Crear, HeaderLogo, HeaderNav, Carrousel, PersonalFotos , QuienesTexto , QuienesValores, Contacto, Productos, Toner, Reparacion, Inicio , InicioOffer } = require("../schema/schema")
 
 //Controlador para gestionar solicitudes GET relacionadas con el inicio de sesión y crear cuenta.
 const getLogin  = async ( req , res , next )=>{
@@ -9,9 +9,9 @@ const getLogin  = async ( req , res , next )=>{
     try {
         //Realiza consultas a diferentes modelos para obtener datos del login.
         const buscar = await Usuario.find()
-        const login  = await Login.find()
-        const iniciar = await Iniciar.find()
-        const crear  = await Crear.find()
+        const login  = await Login.findOne()
+        const iniciar = await Iniciar.findOne()
+        const crear  = await Crear.findOne()
         
         //Combina los resultados anteriores en un solo objeto y los envía como respuesta.
         const loginData = {buscar , login , crear , iniciar}
@@ -43,18 +43,20 @@ const postLogin = async ( req , res , next) =>{
     } 
 }
 
-//Controlador para gestionar solicitudes GET relacionadas con el header, carrousel y gestor.
+//Controlador para gestionar solicitudes GET relacionadas con el header, carrousel e inicio.
 const getGestor = async (req , res , next) => {
     
     try {
-        //Realiza consultas a diferentes modelos para obtener datos del header, carrousel y gestor.
+        //Realiza consultas a diferentes modelos para obtener datos del header, carrousel e inicio.
         const headerLogo = await HeaderLogo.findOne()
         const headerNav  = await HeaderNav.find()
         const carrousel = await Carrousel.find()
+        const inicio = await Inicio.findOne()
+        const inicioOffer = await InicioOffer.find()
         
         
          //Combina los resultados anteriores en un solo objeto y los envía como respuesta.
-        const datos = {headerLogo , headerNav, carrousel}
+        const datos = {headerLogo , headerNav, carrousel , inicio , inicioOffer}
         
         res.status(200).json(datos)
 
@@ -171,7 +173,7 @@ const getQuienes = async ( req , res , next ) => {
     try {
         //Realiza consultas a estos modelos para obtener datos relacionado con 'quienes somos'
         const personalFotos = await PersonalFotos.find()
-        const quienesTexto = await QuienesTexto.find()
+        const quienesTexto = await QuienesTexto.findOne()
         const quienesValores = await QuienesValores.find()
         
         //Combina los modelos en un objeto y los envía como respuesta.
@@ -190,7 +192,7 @@ const getContacto = async ( req , res , next ) => {
 
     try {
         //Realiza consultas a estos modelos para obtener datos relacionado con 'contacto'
-        const contacto = await Contacto.find()
+        const contacto = await Contacto.findOne()
         
         
         //Combina los modelos en un objeto y los envía como respuesta.
