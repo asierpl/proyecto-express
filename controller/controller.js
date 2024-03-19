@@ -1,7 +1,7 @@
 //Este archivo define los controladores que manejan las solicitudes HTTP para la aplicación Express
 
 //Importa los modelos definidos en 'schema.js' para interactuar con MongoDB
-const { Usuario, Login, Iniciar, Crear, HeaderLogo, HeaderNav, Carrousel, PersonalFotos , QuienesTexto , QuienesValores, Contacto, Productos, Toner, Reparacion, Inicio , InicioOffer, Footer, FooterOficina } = require("../schema/schema")
+const { Usuario, Login, Iniciar, Crear, HeaderLogo, HeaderNav, Carrousel, PersonalFotos , QuienesTexto , QuienesValores, Contacto, Productos, Toner, Inicio , InicioOffer, Footer, FooterOficina } = require("../schema/schema")
 
 //Controlador para gestionar solicitudes GET relacionadas con el inicio de sesión y crear cuenta.
 const getLogin  = async ( req , res , next )=>{
@@ -228,24 +228,6 @@ const getProductos = async ( req , res , next ) => {
 }
 
 
-//Controlador para gestionar solicitudes GET relacionadas con el endpoint "/reparacion"
-const getReparacion = async ( req , res , next ) => {
-
-    try {
-        //Realiza consultas a estos modelos para obtener datos relacionado con 'reparacion'
-        const reparacion = await Reparacion.find()
-        
-        
-        //Combina los modelos en un objeto y los envía como respuesta.
-        const reparacionData = {reparacion}
-    
-        res.status(200).json(reparacionData)
-    
-    //Gestiona los errores internos de la API.
-    } catch(error) {
-        next(error)
-    }
-}
 
 
 
@@ -260,6 +242,5 @@ module.exports = {
     getToner,
     postToner,
     deleteToner,
-    putToner,
-    getReparacion
+    putToner
 }

@@ -69,7 +69,7 @@ const Inicio = new mongoose.model( 'Inicio' , inicioSchema)
 
 //Define el esquema y modelo para la colección 'inicioOffer'
 const inicioOfferSchema = new mongoose.Schema(
-    { srcOffer : String , altOffer : String , offer : String , offerP : String },
+    { xlmns : String , viewBox : String , d : String  , offer : String , offerP : String },
     { collection : 'inicioOffer' }
 )
 const InicioOffer = new mongoose.model( 'InicioOffer' , inicioOfferSchema)
@@ -121,13 +121,6 @@ const productosSchema = new mongoose.Schema(
 )
 const Productos = new mongoose.model( 'Productos' , productosSchema)
 
-//Define el esquema y modelo para la colección 'reparacion'
-const reparacionSchema = new mongoose.Schema(
-    { problema : String, comentarios : String },
-    {collection : 'reparacion'}
-)
-const Reparacion = new mongoose.model( 'Reparacion' , reparacionSchema)
-
 //Define el esquema y modelo para la colección 'footer'
 const footerSchema = new mongoose.Schema(
     { bonanzaPie : String, silverPie : String , pPie : String , infoPie : String },
@@ -144,4 +137,4 @@ const FooterOficina = new mongoose.model( 'FooterOficina' , footerOficinaSchema)
 
 
 //Exporta todos los modelos creados para su uso en otros archivos.
-module.exports = {Usuario , Login , Iniciar , Crear , HeaderLogo , HeaderNav , Carrousel , PersonalFotos , QuienesTexto , QuienesValores , Contacto , Productos , Toner , Reparacion , Inicio , InicioOffer , Footer , FooterOficina}
+module.exports = {Usuario , Login , Iniciar , Crear , HeaderLogo , HeaderNav , Carrousel , PersonalFotos , QuienesTexto , QuienesValores , Contacto , Productos , Toner , Inicio , InicioOffer , Footer , FooterOficina}

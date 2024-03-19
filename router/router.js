@@ -3,7 +3,7 @@
 //Importa la librería
 const express = require('express')
 //Importa los controladores utilizados en controller.js
-const { postLogin, getLogin, getGestor, getQuienes, getContacto , getProductos, getToner, getReparacion, postToner, deleteToner, putToner } = require('../controller/controller')
+const { postLogin, getLogin, getGestor, getQuienes, getContacto , getProductos, getToner, postToner, deleteToner, putToner } = require('../controller/controller')
 
 //Define un enrutador de Express
 const router = express.Router()
@@ -40,9 +40,7 @@ router.route('/mantenimiento/:id')
     .put(putToner)             ////Método PUT para editar información sobre "mantenimiento"
 
 
-    //Ruta para el endpoint "/reparacion"
-router.route('/reparacion')
-    .get(getReparacion)           ////Método GET para obtener información sobre "reparacion"
+
 
 
 
