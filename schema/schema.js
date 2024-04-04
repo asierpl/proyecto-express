@@ -109,7 +109,7 @@ const QuienesValores = new mongoose.model( 'QuienesValores' , quienesValoresSche
 
 //Define el esquema y modelo para la colección 'contacto'
 const contactoSchema = new mongoose.Schema(
-    {contacta : String, esperamos : String, calle : String, ciudad : String, telefono : String, numero : String, correo : String, emailCanon : String, emailBonanza : String},
+    {contacta : String, esperamos : String, srcUbi : String , altUbi : String , calle : String, ciudad : String, telefono : String, numeroA : String, numeroB : String, correo : String, emailCanon : String, emailBonanza : String},
     {collection : 'contacto'}
 )
 const Contacto = new mongoose.model( 'Contacto' , contactoSchema)
@@ -135,6 +135,12 @@ const footerOficinaSchema = new mongoose.Schema(
 )
 const FooterOficina = new mongoose.model( 'FooterOficina' , footerOficinaSchema)
 
+const footerNavSchema = new mongoose.Schema(
+    { href : String, title : String },
+    {collection : 'footernav'}
+)
+const FooterNav = new mongoose.model( 'FooterNav' , footerNavSchema)
+
 
 //Exporta todos los modelos creados para su uso en otros archivos.
-module.exports = {Usuario , Login , Iniciar , Crear , HeaderLogo , HeaderNav , Carrousel , PersonalFotos , QuienesTexto , QuienesValores , Contacto , Productos , Toner , Inicio , InicioOffer , Footer , FooterOficina}
+module.exports = {Usuario , Login , Iniciar , Crear , HeaderLogo , HeaderNav , Carrousel , PersonalFotos , QuienesTexto , QuienesValores , Contacto , Productos , Toner , Inicio , InicioOffer , Footer , FooterOficina , FooterNav}
