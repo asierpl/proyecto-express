@@ -3,7 +3,7 @@
 //Importa la librería
 const express = require('express')
 //Importa los controladores utilizados en controller.js
-const { postLogin, getLogin, getGestor, getQuienes, getContacto , getProductos, getToner, postToner, deleteToner, putToner } = require('../controller/controller')
+const { postLogin, getLogin, getInicio, getQuienes, getContacto , getProductos, getToner, postToner, deleteToner, putToner } = require('../controller/controller')
 
 //Define un enrutador de Express
 const router = express.Router()
@@ -13,9 +13,9 @@ router.route('/')
     .get(getLogin)   //Método GET para inicio de sesión
     .post(postLogin) //Método POST para procesar el inicio de sesión
     
-//Ruta para el endpoint "/gestor"
-router.route('/gestor')
-    .get(getGestor)         //Método GET para obtener información del gestor, concretamente una lista de las solicitudes de asistencia técnica del usuario.
+//Ruta para el endpoint "/inicio"
+router.route('/inicio')
+    .get(getInicio)         //Método GET para obtener información sobre la página de inicio.
     
 
 //Ruta para el endpoint "/quienes-somos"

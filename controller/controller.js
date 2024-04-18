@@ -1,7 +1,7 @@
 //Este archivo define los controladores que manejan las solicitudes HTTP para la aplicación Express
 
 //Importa los modelos definidos en 'schema.js' para interactuar con MongoDB
-const { Usuario, Login, Iniciar, Crear, HeaderLogo, HeaderNav, Carrousel, PersonalFotos , QuienesTexto , QuienesValores, Contacto, Productos, Toner, Inicio , InicioOffer, Footer, FooterOficina , FooterNav } = require("../schema/schema")
+const { Usuario, Login, Iniciar, Crear, HeaderLogo, HeaderNav, Carrousel, PersonalFotos , QuienesTexto , QuienesValores, Contacto, Productos, Toner, InfoToner , Inicio , InicioOffer, Footer, FooterOficina , FooterNav } = require("../schema/schema")
 
 //Controlador para gestionar solicitudes GET relacionadas con el inicio de sesión y crear cuenta.
 const getLogin  = async ( req , res , next )=>{
@@ -44,7 +44,7 @@ const postLogin = async ( req , res , next) =>{
 }
 
 //Controlador para gestionar solicitudes GET relacionadas con el header, carrousel e inicio.
-const getGestor = async (req , res , next) => {
+const getInicio = async (req , res , next) => {
     
     try {
         //Realiza consultas a diferentes modelos para obtener datos del header, carrousel,  inicio y footer
@@ -77,9 +77,9 @@ const getToner = async ( req , res , next ) => {
     try {
         //Realiza consultas a estos modelos para obtener datos relacionado con 'mantenimiento'
         const toner = await Toner.find()
-        
+        const infoToner = await InfoToner.findOne()
         //Combina los modelos en un objeto y los envía como respuesta.
-        const tonerData = {toner}
+        const tonerData = {toner , infoToner}
     
         res.status(200).json(tonerData)
     
@@ -236,7 +236,7 @@ const getProductos = async ( req , res , next ) => {
 module.exports = {
     getLogin,
     postLogin,
-    getGestor,
+    getInicio,
     getQuienes,
     getContacto,
     getProductos,

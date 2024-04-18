@@ -82,7 +82,11 @@ const tonerSchema = new mongoose.Schema(
 )
 const Toner = new mongoose.model( 'Toner' , tonerSchema)
 
-
+const infoTonerSchema = new mongoose.Schema(
+    { tonerh : String , tonerp : String },
+    {collection : 'infoToner'}
+)
+const InfoToner = new mongoose.model( 'InfoToner' , infoTonerSchema)
 
 //Define el esquema y modelo para la colección 'personalfotos'
 const personalFotosSchema = new mongoose.Schema(
@@ -143,4 +147,4 @@ const FooterNav = new mongoose.model( 'FooterNav' , footerNavSchema)
 
 
 //Exporta todos los modelos creados para su uso en otros archivos.
-module.exports = {Usuario , Login , Iniciar , Crear , HeaderLogo , HeaderNav , Carrousel , PersonalFotos , QuienesTexto , QuienesValores , Contacto , Productos , Toner , Inicio , InicioOffer , Footer , FooterOficina , FooterNav}
+module.exports = {Usuario , Login , Iniciar , Crear , HeaderLogo , HeaderNav , Carrousel , PersonalFotos , QuienesTexto , QuienesValores , Contacto , Productos , Toner , InfoToner , Inicio , InicioOffer , Footer , FooterOficina , FooterNav}
