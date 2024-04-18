@@ -1,4 +1,4 @@
-//Este archivo define los controladores que manejan las solicitudes HTTP para la aplicación Express
+//Este archivo define los controladores que manejan las solicitudes HTTP para la aplicación Express.
 
 //Importa los modelos definidos en 'schema.js' para interactuar con MongoDB
 const { Usuario, Login, Iniciar, Crear, HeaderLogo, HeaderNav, Carrousel, PersonalFotos , QuienesTexto , QuienesValores, Contacto, Productos, Toner, InfoToner , Inicio , InicioOffer, Footer, FooterOficina , FooterNav } = require("../schema/schema")
