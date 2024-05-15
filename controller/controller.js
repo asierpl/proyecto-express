@@ -102,11 +102,14 @@ const postToner = async( req , res , next ) => {
         //Guarda dicho documento en la base de datos.
         await toner.save()
         
+        //Obtener el ID del toner generado por MongoDB
+        const {_id} = toner
+
         //Realiza una consulta para obtener los documentos de la nueva lista.
         const añadirToner = await Toner.find()
         
         //Envía la respuesta con los resultados de la consulta.
-        res.status(201).json(añadirToner)
+        res.status(201).json({toner : añadirToner , nuevoId : _id})
 
     //Gestiona los errores internos de la API.
     } catch(error) {
