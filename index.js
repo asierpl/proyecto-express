@@ -11,7 +11,6 @@ const { router } = require('./router/router')
 
 //Define la URL de Mongo mediante la URL de las variables de entorno o, si no, la URL local
 let URL_ATLAS = process.env.URL_ATLAS || 'mongodb://127.0.0.1:27017/proyectofinal'
-// let URL_ATLAS = 'mongodb+srv://asierpl210395:brocoli21@cluster0.7yzz5by.mongodb.net/proyectofinal'
 
 //Crea una instancia de la aplicación Express
 const app = express()
